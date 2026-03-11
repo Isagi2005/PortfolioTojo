@@ -1,26 +1,97 @@
 @import "tailwindcss";
 
+/* Light mode - Forest & Nature palette */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafaf7;
+  --foreground: #1a1a16;
+  
+  /* Primary nature colors */
+  --primary: #2d5016;
+  --primary-light: #3d6b1f;
+  --primary-lighter: #4d8c28;
+  
+  /* Secondary - Earth tones */
+  --secondary: #8b7355;
+  --secondary-light: #a08672;
+  
+  /* Accent - Wildlife orange/copper */
+  --accent: #d4742e;
+  --accent-light: #e8945f;
+  
+  /* Surfaces */
+  --surface-1: #ffffff;
+  --surface-2: #f5f3f0;
+  --surface-3: #ede9e4;
+  
+  /* Text variants */
+  --text-primary: #1a1a16;
+  --text-secondary: #5a5a52;
+  --text-tertiary: #8a8a7e;
+  
+  /* Borders & dividers */
+  --border: #e0dcd6;
+  --border-subtle: #ede9e4;
+}
+
+/* Dark mode - Deep forest palette */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0d1b08;
+    --foreground: #e8e6e1;
+    
+    /* Primary nature colors - darker */
+    --primary: #4d8c28;
+    --primary-light: #5fa430;
+    --primary-lighter: #6fb839;
+    
+    /* Secondary - Warm earth */
+    --secondary: #a08672;
+    --secondary-light: #b89e87;
+    
+    /* Accent - Warm copper/fire */
+    --accent: #e8945f;
+    --accent-light: #f0ad7f;
+    
+    /* Surfaces */
+    --surface-1: #1a2414;
+    --surface-2: #242e1a;
+    --surface-3: #2d3822;
+    
+    /* Text variants */
+    --text-primary: #e8e6e1;
+    --text-secondary: #b8b6b0;
+    --text-tertiary: #888884;
+    
+    /* Borders & dividers */
+    --border: #3a4a30;
+    --border-subtle: #2d3822;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color - nature themed */
+::selection {
+  background-color: var(--primary-light);
+  color: var(--surface-1);
 }

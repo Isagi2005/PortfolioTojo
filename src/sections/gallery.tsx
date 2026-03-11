@@ -90,10 +90,14 @@ export function Gallery() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Image Placeholder */}
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30">
-                  <Camera className="w-12 h-12 text-green-400/50 dark:text-green-500/30" />
-                </div>
+                {/* Image */}
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover group-hover:brightness-110 transition-all duration-300"
+                  priority={index < 3}
+                />
 
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
@@ -156,9 +160,15 @@ export function Gallery() {
                   transition={{ duration: 0.3 }}
                   className="flex flex-col items-center"
                 >
-                  {/* Image Placeholder */}
-                  <div className="relative w-[80vw] max-w-4xl aspect-video bg-gradient-to-br from-green-900/50 to-emerald-900/50 rounded-lg flex items-center justify-center">
-                    <Camera className="w-24 h-24 text-green-500/30" />
+                  {/* Image */}
+                  <div className="relative w-[80vw] max-w-4xl aspect-video rounded-lg overflow-hidden">
+                    <Image
+                      src={currentImage.src}
+                      alt={currentImage.alt}
+                      fill
+                      className="object-cover"
+                      priority
+                    />
                   </div>
 
                   {/* Caption */}
