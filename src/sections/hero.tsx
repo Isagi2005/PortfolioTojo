@@ -13,15 +13,15 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden" aria-label="Hero section with introduction">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 dark:from-gray-900 dark:via-green-950 dark:to-gray-900">
+      {/* Background Gradient - Nature inspired */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-orange-50/20 to-green-50/30 dark:from-green-950/40 dark:via-orange-950/20 dark:to-green-950/30">
         {/* Animated Background Elements */}
+        {/* Organic background shapes - forest green */}
         <motion.div
-          className="absolute top-20 left-10 w-64 h-64 rounded-full bg-green-300/20 dark:bg-green-600/10 blur-3xl"
+          className="absolute top-32 left-0 w-72 h-72 rounded-full bg-green-300/15 dark:bg-green-600/10 blur-3xl"
           animate={{
-            scale: [1, 1.2, 1],
-            x: [0, 20, 0],
-            y: [0, -20, 0],
+            scale: [1, 1.3, 1],
+            x: [0, 40, 0],
           }}
           transition={{
             duration: 8,
@@ -29,12 +29,12 @@ export function Hero() {
             ease: [0.42, 0, 0.58, 1],
           }}
         />
+        {/* Organic background shapes - copper/orange accent */}
         <motion.div
-          className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-emerald-300/20 dark:bg-emerald-600/10 blur-3xl"
+          className="absolute bottom-10 right-5 w-96 h-96 rounded-full bg-orange-300/10 dark:bg-orange-600/8 blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
-            x: [0, -30, 0],
-            y: [0, 30, 0],
+            x: [0, -50, 0],
           }}
           transition={{
             duration: 10,
@@ -42,15 +42,15 @@ export function Hero() {
             ease: [0.42, 0, 0.58, 1],
           }}
         />
+        {/* Center soft glow */}
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-teal-300/15 dark:bg-teal-600/10 blur-3xl"
+          className="absolute inset-0 bg-gradient-to-b from-transparent via-green-200/5 to-transparent dark:via-green-600/5"
           animate={{
-            scale: [1, 1.1, 1],
+            opacity: [0.5, 0.8, 0.5],
           }}
           transition={{
             duration: 6,
             repeat: Infinity,
-            ease: [0.42, 0, 0.58, 1],
           }}
         />
       </div>
@@ -62,10 +62,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 text-sm font-medium mb-8"
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-green-100 to-orange-100 dark:from-green-900/50 dark:to-orange-900/40 text-green-800 dark:text-green-200 text-sm font-semibold mb-8 border border-green-200/50 dark:border-green-700/50 backdrop-blur-sm"
         >
-          <Leaf className="w-4 h-4" />
-          <span>Biodiversity Conservation Researcher</span>
+          <Leaf className="w-5 h-5 animate-pulse" />
+          <span>Protecting Madagascar's Wildlife</span>
         </motion.div>
 
         {/* Name */}
@@ -73,10 +73,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-gray-100 mb-6 tracking-tight"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-green-950 dark:text-white mb-6 tracking-tight"
         >
           <span className="block">{portfolioData.name.split(" ")[0]}</span>
-          <span className="block mt-2 bg-gradient-to-r from-green-600 to-emerald-600 dark:from-green-400 dark:to-emerald-400 bg-clip-text text-transparent">
+          <span className="block mt-3 bg-gradient-to-r from-green-700 via-emerald-600 to-orange-600 dark:from-green-300 dark:via-emerald-400 dark:to-orange-400 bg-clip-text text-transparent">
             {portfolioData.name.split(" ").slice(1).join(" ")}
           </span>
         </motion.h1>
@@ -96,7 +96,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }}
-          className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400 text-lg mb-10 leading-relaxed"
+          className="max-w-3xl mx-auto text-green-900/80 dark:text-green-100/90 text-xl sm:text-2xl mb-12 leading-relaxed font-light"
         >
           {portfolioData.tagline}
         </motion.p>

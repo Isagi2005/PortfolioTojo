@@ -26,7 +26,7 @@ const itemVariants = {
 
 export function About() {
   return (
-    <section id="about" className="py-24 bg-white dark:bg-gray-900">
+    <section id="about" className="py-24 bg-gradient-to-br from-white via-green-50/30 to-orange-50/20 dark:from-green-950/20 dark:via-green-900/20 dark:to-orange-950/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -35,16 +35,16 @@ export function About() {
           variants={containerVariants}
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 text-sm font-medium mb-4">
-              <BookOpen className="w-4 h-4" />
-              <span>About Me</span>
+          <motion.div variants={itemVariants} className="text-center mb-20">
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-green-100 to-orange-100 dark:from-green-900/50 dark:to-orange-900/40 text-green-800 dark:text-green-200 text-sm font-semibold mb-6 border border-green-200/50 dark:border-green-700/50">
+              <Leaf className="w-5 h-5" />
+              <span>My Story & Mission</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-              Passionate About Conservation
+            <h2 className="text-4xl sm:text-5xl font-bold text-green-950 dark:text-green-50 mb-6">
+              Driven by Passion for Nature
             </h2>
-            <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
-              A dedicated researcher working to protect Madagascar&apos;s unique biodiversity
+            <p className="max-w-2xl mx-auto text-green-900/80 dark:text-green-100/80 text-lg leading-relaxed">
+              Dedicated to protecting Madagascar&apos;s irreplaceable biodiversity through research, community engagement, and conservation action
             </p>
           </motion.div>
 
@@ -62,11 +62,11 @@ export function About() {
               </div>
 
               {/* Expertise Tags */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-3">
                 {portfolioData.about.expertise.map((skill, index) => (
                   <span
                     key={index}
-                    className="px-4 py-2 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-lg text-sm font-medium"
+                    className="px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/40 dark:to-emerald-900/30 text-green-800 dark:text-green-200 rounded-full text-sm font-semibold border border-green-200/50 dark:border-green-700/50 hover:shadow-md transition-shadow"
                   >
                     {skill}
                   </span>
@@ -76,32 +76,40 @@ export function About() {
 
             {/* Stats Cards */}
             <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4">
-              <Card className="bg-green-50/50 dark:bg-green-900/20 border-green-100 dark:border-green-800">
+              <Card className="bg-gradient-to-br from-green-50 to-emerald-50/50 dark:from-green-900/30 dark:to-emerald-900/20 border border-green-200/50 dark:border-green-700/50 shadow-lg hover:shadow-xl transition-shadow">
                 <CardContent className="p-6">
-                  <Leaf className="w-8 h-8 text-green-600 dark:text-green-400 mb-4" />
-                  <div className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-1">5+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Years of Research</div>
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center mb-4">
+                    <Leaf className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="text-4xl font-bold text-green-900 dark:text-green-50 mb-2">5+</div>
+                  <div className="text-sm font-semibold text-green-700 dark:text-green-300">Years of Research</div>
                 </CardContent>
               </Card>
-              <Card className="bg-emerald-50/50 dark:bg-emerald-900/20 border-emerald-100 dark:border-emerald-800">
+              <Card className="bg-gradient-to-br from-orange-50 to-amber-50/50 dark:from-orange-900/30 dark:to-amber-900/20 border border-orange-200/50 dark:border-orange-700/50 shadow-lg hover:shadow-xl transition-shadow">
                 <CardContent className="p-6">
-                  <Globe className="w-8 h-8 text-emerald-600 dark:text-emerald-400 mb-4" />
-                  <div className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-1">10+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Research Sites</div>
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center mb-4">
+                    <Globe className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="text-4xl font-bold text-orange-900 dark:text-orange-50 mb-2">10+</div>
+                  <div className="text-sm font-semibold text-orange-700 dark:text-orange-300">Research Sites</div>
                 </CardContent>
               </Card>
-              <Card className="bg-teal-50/50 dark:bg-teal-900/20 border-teal-100 dark:border-teal-800">
+              <Card className="bg-gradient-to-br from-emerald-50 to-teal-50/50 dark:from-emerald-900/30 dark:to-teal-900/20 border border-emerald-200/50 dark:border-emerald-700/50 shadow-lg hover:shadow-xl transition-shadow">
                 <CardContent className="p-6">
-                  <Users className="w-8 h-8 text-teal-600 dark:text-teal-400 mb-4" />
-                  <div className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-1">500+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Community Members Engaged</div>
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center mb-4">
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="text-4xl font-bold text-emerald-900 dark:text-emerald-50 mb-2">500+</div>
+                  <div className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">Community Members</div>
                 </CardContent>
               </Card>
-              <Card className="bg-green-50/50 dark:bg-green-900/20 border-green-100 dark:border-green-800">
+              <Card className="bg-gradient-to-br from-green-50 to-green-50/50 dark:from-green-900/30 dark:to-green-900/20 border border-green-200/50 dark:border-green-700/50 shadow-lg hover:shadow-xl transition-shadow">
                 <CardContent className="p-6">
-                  <BookOpen className="w-8 h-8 text-green-600 dark:text-green-400 mb-4" />
-                  <div className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-1">12</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Publications</div>
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center mb-4">
+                    <BookOpen className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="text-4xl font-bold text-green-900 dark:text-green-50 mb-2">12</div>
+                  <div className="text-sm font-semibold text-green-700 dark:text-green-300">Publications</div>
                 </CardContent>
               </Card>
             </motion.div>

@@ -44,7 +44,7 @@ export function Navigation() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg"
+            ? "bg-white/95 dark:bg-green-950/90 backdrop-blur-lg shadow-xl border-b border-green-200/30 dark:border-green-800/30"
             : "bg-transparent"
         }`}
         role="banner"
@@ -61,12 +61,12 @@ export function Navigation() {
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             >
-              <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
+              <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all ${
                 isScrolled
-                  ? "bg-green-600"
-                  : "bg-green-600/90"
+                  ? "bg-gradient-to-br from-green-600 to-emerald-600 shadow-lg"
+                  : "bg-gradient-to-br from-green-600 to-emerald-600 shadow-lg"
               }`}>
-                <Leaf className="w-4 h-4 text-white" />
+                <Leaf className="w-5 h-5 text-white animate-pulse" />
               </div>
               <span className={`font-bold text-lg transition-colors ${
                 isScrolled
@@ -83,10 +83,10 @@ export function Navigation() {
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all ${
                     isScrolled
-                      ? "text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20"
-                      : "text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50/50 dark:hover:bg-green-900/10"
+                      ? "text-green-900 dark:text-green-100 hover:text-green-700 dark:hover:text-green-50 hover:bg-green-100 dark:hover:bg-green-800/40"
+                      : "text-green-900 dark:text-green-100 hover:text-green-700 dark:hover:text-green-50 hover:bg-white/40 dark:hover:bg-green-900/30"
                   }`}
                 >
                   {link.label}
@@ -101,10 +101,10 @@ export function Navigation() {
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className={`rounded-lg transition-colors ${
+                className={`rounded-lg transition-all ${
                   isScrolled
-                    ? "hover:bg-gray-100 dark:hover:bg-gray-800"
-                    : "hover:bg-white/20 dark:hover:bg-black/20"
+                    ? "hover:bg-green-100 dark:hover:bg-green-800/40"
+                    : "hover:bg-white/30 dark:hover:bg-green-900/20"
                 }`}
                 aria-label="Toggle dark mode"
               >
@@ -112,22 +112,22 @@ export function Navigation() {
                   {theme === "dark" ? (
                     <motion.div
                       key="sun"
-                      initial={{ opacity: 0, rotate: -90 }}
-                      animate={{ opacity: 1, rotate: 0 }}
-                      exit={{ opacity: 0, rotate: 90 }}
-                      transition={{ duration: 0.2 }}
+                      initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                      animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                      exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <Sun className="w-5 h-5 text-yellow-500" />
+                      <Sun className="w-6 h-6 text-amber-400" />
                     </motion.div>
                   ) : (
                     <motion.div
                       key="moon"
-                      initial={{ opacity: 0, rotate: 90 }}
-                      animate={{ opacity: 1, rotate: 0 }}
-                      exit={{ opacity: 0, rotate: -90 }}
-                      transition={{ duration: 0.2 }}
+                      initial={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                      animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                      exit={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <Moon className="w-5 h-5 text-gray-600" />
+                      <Moon className="w-6 h-6 text-green-700" />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -159,14 +159,14 @@ export function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-16 z-40 md:hidden bg-white dark:bg-gray-900 shadow-lg border-b border-gray-200 dark:border-gray-800"
+            className="fixed inset-x-0 top-16 z-40 md:hidden bg-white/95 dark:bg-green-950/95 shadow-xl border-b border-green-200/30 dark:border-green-800/30 backdrop-blur-md"
           >
             <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className="px-4 py-3 text-left text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 rounded-lg transition-colors font-medium"
+                  className="px-4 py-3 text-left text-green-900 dark:text-green-100 hover:text-green-700 dark:hover:text-green-50 hover:bg-green-100 dark:hover:bg-green-800/40 rounded-lg transition-all font-semibold"
                 >
                   {link.label}
                 </button>

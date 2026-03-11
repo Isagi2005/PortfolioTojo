@@ -6,16 +6,30 @@ import type { ReactNode } from "react";
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   return (
-    <NextThemesProvider attribute="class" defaultTheme="light" enableSystem={true} disableTransitionOnChange={false}>
+    <NextThemesProvider 
+      attribute="class" 
+      defaultTheme="light" 
+      enableSystem={false}
+      storageKey="portfolio-theme"
+      themes={["light", "dark"]}
+      disableTransitionOnChange={false}
+      forcedTheme={undefined}
+    >
       {children}
     </NextThemesProvider>
   );
 }
 
 export function useTheme() {
-  const { theme, setTheme } = useNextTheme();
+  const { theme, setTheme, systemTheme, resolvedTheme } = useNextTheme();
+  
   return {
-    theme: (theme || "light") as "light" | "dark",
-    toggleTheme: () => setTheme(theme === "dark" ? "light" : "dark"),
+    theme: (resolvedTheme || "light") as "light" | "dark",
+    setTheme: setTheme,
+    toggleTheme: () => {
+      const currentTheme = resolvedTheme || "light";
+      setTheme(currentTheme === "dark" ? "light" : "dark");
+    },
+    isDark: resolvedTheme === "dark",
   };
 }
