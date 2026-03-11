@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Microscope, MapPin, Target, Calendar, ExternalLink } from "lucide-react";
+import { Microscope, MapPin, Target, Calendar, ExternalLink, ChevronDown } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
+import Image from "next/image";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -30,6 +32,12 @@ const itemVariants = {
 };
 
 export function Projects() {
+  const [expandedProject, setExpandedProject] = useState<number | null>(null);
+
+  const toggleExpand = (projectId: number) => {
+    setExpandedProject(expandedProject === projectId ? null : projectId);
+  };
+
   return (
     <section id="projects" className="py-24 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,9 +66,14 @@ export function Projects() {
             {portfolioData.projects.map((project) => (
               <motion.div key={project.id} variants={itemVariants}>
                 <Card className="h-full bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow overflow-hidden group">
-                  {/* Project Image Placeholder */}
-                  <div className="h-48 bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 flex items-center justify-center">
-                    <Microscope className="w-16 h-16 text-green-400/50 dark:text-green-500/30 group-hover:scale-110 transition-transform duration-300" />
+                  {/* Project Image */}
+                  <div className="relative h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
                   
                   <CardHeader className="pb-2">
@@ -92,7 +105,7 @@ export function Projects() {
                         Key Objectives
                       </div>
                       <ul className="space-y-1">
-                        {project.objectives.slice(0, 3).map((objective, index) => (
+                        {project.objectives.slice(0, expandedProject === project.id ? undefined : 2).map((objective, index) => (
                           <li key={index} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
                             <span className="text-green-500 mt-1">•</span>
                             {objective}
@@ -101,9 +114,17 @@ export function Projects() {
                       </ul>
                     </div>
 
-                    <button className="flex items-center gap-2 text-green-600 dark:text-green-400 text-sm font-medium hover:underline">
-                      Learn more
-                      <ExternalLink className="w-4 h-4" />
+                    {/* Expand/Collapse Button */}
+                    <button 
+                      onClick={() => toggleExpand(project.id)}
+                      className="flex items-center gap-2 text-green-600 dark:text-green-400 text-sm font-medium hover:underline w-full justify-between pt-2"
+                    >
+                      <span>{expandedProject === project.id ? "Show less" : "Learn more"}</span>
+                      <ChevronDown 
+                        className={`w-4 h-4 transition-transform duration-300 ${
+                          expandedProject === project.id ? "rotate-180" : ""
+                        }`}
+                      />
                     </button>
                   </CardContent>
                 </Card>

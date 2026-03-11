@@ -47,6 +47,7 @@ export function Navigation() {
             ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg"
             : "bg-transparent"
         }`}
+        role="banner"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
@@ -77,7 +78,7 @@ export function Navigation() {
             </motion.a>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-1">
+            <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
@@ -105,6 +106,7 @@ export function Navigation() {
                     ? "hover:bg-gray-100 dark:hover:bg-gray-800"
                     : "hover:bg-white/20 dark:hover:bg-black/20"
                 }`}
+                aria-label="Toggle dark mode"
               >
                 <AnimatePresence mode="wait">
                   {theme === "dark" ? (

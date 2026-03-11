@@ -35,7 +35,7 @@ const countryIcons: Record<string, React.ReactNode> = {
 
 export function Expeditions() {
   return (
-    <section id="expeditions" className="py-24 bg-white dark:bg-gray-900">
+    <section id="expeditions" className="py-24 bg-white dark:bg-gray-900" aria-label="Field expeditions and research trips">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
