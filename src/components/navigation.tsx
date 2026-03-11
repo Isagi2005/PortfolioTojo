@@ -17,7 +17,7 @@ const navLinks = [
 ];
 
 export function Navigation() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme, mounted } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -29,6 +29,10 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
